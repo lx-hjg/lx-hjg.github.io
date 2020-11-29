@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <head>
+        <style>body{background-color: skyblue;}
+       </style>
+    </head>
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业三-自我介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+            list-style: none;
+        }
+
+        html, body, ul {
+            width: 100%;
+            height: 100%;
+        }
+
+        #wall {
+            position: relative;
+        }
+
+        #wall li {
+            width: 600px;
+            height: 400px;
+            box-shadow: 0 0 15px #000;
+            position: absolute;
+
+            transition: all 1s;
+        }
+
+        #wall li img {
+            width: 600px;
+            height: 400px;
+        }
+
+        #wall li.current {
+            left: 50% !important;
+            top: 50% !important;
+            transform: rotate(0) translate(-50%, -50%) scale(1.2, 1.2) !important;
+            z-index: 9;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align:center">罗鑫 201916180322 <br>由于个人原因从不拍照，所以我放了如下图片QWQ</div>
+    <ul id="wall">
+    <li style="left: 740.00px; top: 60.00px; transform: rotate(310.00deg);"><img src="照片\1a97ba64e4884852a25ff3a07fba421e.jpeg">
+    </li><li style="left: 760.00px; top: 110.00px; transform: rotate(320.00deg);"><img src="照片\109951163326351130.jpg" >
+    </li><li style="left: 780.000px; top: 170.00px; transform: rotate(330.00deg);"><img src="照片\857KT6C351H90003.jpg">
+    </li><li style="left: 800.000px; top: 230.000px; transform: rotate(340.000deg);"><img src="照片\7504eb18aefd4ba99e2d1792063399ca.jpeg">
+    </li><li style="left: 820.000px; top: 290.00px; transform: rotate(350.000deg);"><img src="照片\8601a18b87d6277f4fe23b4b21381f30e824fcd5.jpg">
+    </li><li style="left: 820.000px; top: 350.00px; transform: rotate(360.000deg);"><img src="照片\20077af407de58e26f6646768b121c62cf5e0d5a.jpg">
+    </li><li style="left: 20.000px; top: 60.00px; transform: rotate(-310.00deg);"><img src="照片\rp_k-fyskeuc1199763.jpg">
+    </li><li style="left: 40.000px; top: 110.00px; transform: rotate(-320.00deg);"><img src="照片\109951162834515278.jpg">
+    </li><li style="left: 60.000px; top: 170.00px; transform: rotate(-330.000deg);"><img src="照片\ChMkJlah6XmIYC1_AA_mAyQe9GEAAHjsgMqgakAD-Yb054.jpg">
+    </li><li style="left: 80.00px; top: 230.000px; transform: rotate(-340.00deg);"><img src="照片\fedd6cb3f60834d9262960dc48bc939b11d57825.jpg">
+    </li><li style="left: 100.0000px; top: 290.0px; transform: rotate(-350.00deg);"><img src="照片\a688b517aad0462a94432ff39614e61a.jpeg">
+    </li><li style="left: 120.000px; top: 350.0px; transform: rotate(-360.000deg);"><img src="照片\71cacfcbca024a0da1abe55c3298c9ad.jpeg">   
+    </li></ul>
+    <script>
+        window.onload = function () {
+            var wall = document.getElementById('wall');
+            // 照片左上角的最大位置
+            var maxWidth = document.documentElement.clientWidth - 320;
+            var maxHeight = document.documentElement.clientHeight - 426;
+
+            // 1. 动态创建 li 标签
+            for (var i = 0; i < 0; ++i) {
+                // 1.1 创建标签
+                var li = document.createElement("li");
+                wall.appendChild(li);
+
+                // 1.2 创建 img 标签
+                var img = document.createElement("img");
+                if (i < 9)
+                    img.src = "images/mn0" + (i+1) + ".jpg";
+                else
+                    img.src = "images/mn" + (i+1) + ".jpg";
+                li.appendChild(img);
+
+                // 随机位置
+                li.style.left = Math.random()*maxWidth + 'px';
+                li.style.top = Math.random()*maxHeight + 'px';
+
+                // 随机角度
+                li.style.transform = 'rotate(' + Math.random()*360 + 'deg)';
+            
+        
+            }
+
+            var allLis = wall.children;
+            for (var i = 0; i < allLis.length; ++i) {
+                var li = allLis[i];
+                // 监听点击事件
+                li.onclick = function () {
+                    for (var j = 0; j < allLis.length; ++j)
+                        allLis[j].className = '';
+                    this.className = "current";
+                }
+            }
+        }
+    </script>
+
+</body></html>
